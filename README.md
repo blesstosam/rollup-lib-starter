@@ -1,2 +1,1 @@
-# rollup-study
-rollup demo
+# rollup-lib-starter
