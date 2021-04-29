@@ -3,6 +3,6 @@
     ["@babel/preset-env", { "targets": { "ie": 11 } }]
   ],
   "plugins": [
-    ["@babel/plugin-transform-runtime", { "corejs": 3 }]
+    ["@babel/plugin-transform-runtime", { "corejs": false, "helpers": true }]
   ]
 }
