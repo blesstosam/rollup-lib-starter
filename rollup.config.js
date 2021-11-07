@@ -2,6 +2,7 @@ import { terser } from 'rollup-plugin-terser'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel'
+import replace from '@rollup/plugin-replace'
 const { name, version } = require('./package.json')
 
 const NODE_ENV = process.env.NODE_ENV
@@ -10,6 +11,10 @@ const isProd = NODE_ENV === 'production'
 const plugs = [
   resolve(),
   commonjs(),
+  replace({
+    preventAssignment: true,
+    __DEV__: process.env.NODE_ENV !== 'production'
+  }),
   // getBabelOutputPlugin({
   //   allowAllFormats: true,
   //   // exclude: 'node_modules/**',
